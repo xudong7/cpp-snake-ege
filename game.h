@@ -16,7 +16,7 @@ class Game
 public:
     Game();
     void run();
-    void snakeAction(bool ifAte, bool ifSecondAte, int mode[]);
+    void snakeAction(bool& ifAte, bool& ifSecondAte, int mode[]);
     void updateRandomWall(bool& ifAte, bool& ifSecondAte, int mode[]);
     bool checkGameOver(int mode[]);   
 };

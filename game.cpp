@@ -6,7 +6,7 @@ Game::Game()
     menu.listenMenu();
 }
 
-void Game::snakeAction(bool ifAte, bool ifSecondAte, int mode[])
+void Game::snakeAction(bool& ifAte, bool& ifSecondAte, int mode[])
 {
     if (mode[0] == 1 && mode[1] == 0)
     {
@@ -108,12 +108,19 @@ void Game::run()
         delay_fps(VELOCITY);
     }  
 
-    if (snake.isGameOver() || secondSnake.isGameOver())
+    char buffer[100];
+    if (mode[0] == 1 && mode[1] == 0)
     {
-        char buffer[100];
-        sprintf(buffer, "Game Over! first score: %d, second score: %d", score, secondScore);
-        MessageBox(NULL, buffer, "Snake Game", MB_OK);
-        menu.reset();
+        sprintf(buffer, "Game Over! Your score: %d", score);
     }
+    else
+    {
+        if (snake.isGameOver() || secondSnake.isGameOver())
+        {
+            sprintf(buffer, "Game Over! first score: %d, second score: %d", score, secondScore);
+        }
+    }
+    MessageBox(NULL, buffer, "Snake Game", MB_OK);
+    menu.reset();
 }
 
