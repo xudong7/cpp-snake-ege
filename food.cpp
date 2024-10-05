@@ -1,35 +1,40 @@
 #include "food.h"
+#include "menu.h"
 
 Food::Food()
 {
-    foodImg = newimage();
-    getimage(foodImg, "./snake/assets/food.jpg");
+    setImages(); 
 }
 
 void Food::setImages()
 {
     foodImg = newimage();
-    getimage(foodImg, "./snake/assets/food.jpg");
+    getimage(foodImg, "./snake/assets/china.jpg");
 }
 
-void Food::draw()
+void Food::draw(vector<Point>& wall_position, int ifAteFood)
 {
+    generateRandomly(wall_position, ifAteFood);
     putimage(food.x, food.y, foodImg);
 }
 
-void Food::generateRandomly(vector<Point>& wall_position)
+void Food::generateRandomly(vector<Point>& wall_position, int ifAteFood)
 {
-    int x = rand() % ((WINDOW_WIDTH - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
-    int y = rand() % ((WINDOW_HEIGHT - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
-    for (auto &p : wall_position)
+    if (ifAteFood)
     {
-        if (x == p.x && y == p.y)
+        int x = rand() % ((WINDOW_WIDTH - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
+        int y = rand() % ((WINDOW_HEIGHT - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
+        for (auto &p : wall_position)
         {
-            generateRandomly(wall_position);
-            return;
+            if (x == p.x && y == p.y)
+            {
+                generateRandomly(wall_position, ifAteFood);
+                return;
+            }
         }
+        food = {x, y};
     }
-    food = {x, y};
+
 }
 
 Food::~Food()

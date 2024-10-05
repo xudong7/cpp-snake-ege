@@ -2,7 +2,7 @@
   
 #include "menu.h"
 
-class Snake 
+class SecondSnake 
 {  
 private:  
     PIMAGE snakeHeadImg;
@@ -16,8 +16,8 @@ private:
     bool gameOver;   
  
 public:  
-    Snake();  
-    ~Snake();
+    SecondSnake();  
+    ~SecondSnake();
     void setImages();
     void draw();  
     bool move(vector<Point>& wall_position, Point& food);  
@@ -27,6 +27,5 @@ public:
     void checkGameOver(Point& newHead, vector<Point>& wall_position);
     bool isGameOver();  
     int getLength();
-    int getScore();
 };  
   

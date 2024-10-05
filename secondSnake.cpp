@@ -1,43 +1,38 @@
-#include "snake.h"  
+#include "secondSnake.h"  
 
-Snake::Snake() : direction(3), length(2), gameOver(false) 
+SecondSnake::SecondSnake() : direction(3), length(2), gameOver(false) 
 {  
     srand(time(nullptr)); 
-    head.x = WINDOW_WIDTH / 2 - 2 * GRID_SIZE;  
+    head.x = WINDOW_WIDTH / 2 + 2 * GRID_SIZE;  
     head.y = WINDOW_HEIGHT / 2;  
     body.push_back({head.x, head.y - GRID_SIZE});  
     body.push_back({head.x, head.y});  
 
     setImages();
 }  
-  
-int Snake::getScore()
-{
-    return score;
-}
 
-void Snake::setImages()
+void SecondSnake::setImages()
 {
     snakeHeadImg = newimage();
     snakeBodyImg = newimage();
-    getimage(snakeHeadImg, "./snake/assets/snakeHead.jpg");
-    getimage(snakeBodyImg, "./snake/assets/snakeTail.jpg");
+    getimage(snakeHeadImg, "./snake/assets/secondSnakeHead.jpg");
+    getimage(snakeBodyImg, "./snake/assets/secondSnakeTail.jpg");
 }
 
-Snake::~Snake() {  
+SecondSnake::~SecondSnake() {  
     delimage(snakeHeadImg);
     delimage(snakeBodyImg);
 }  
 
-void Snake::printScore()
+void SecondSnake::printScore()
 {
     char str[100];
     setcolor(WHITE);
-    sprintf(str, "Score: %d", score);
-    outtextxy(0, 0, str);
+    sprintf(str, "secondScore: %d", secondScore);
+    outtextxy(WINDOW_WIDTH-6.4*GRID_SIZE, 0, str);
 }
 
-void Snake::draw()
+void SecondSnake::draw()
 {   
     for (size_t i = 0; i < body.size(); ++i) {  
         PIMAGE img = (i == body.size()-1) ? snakeHeadImg : snakeBodyImg;  
@@ -45,15 +40,15 @@ void Snake::draw()
     }  
 }  
 
-bool Snake::ifAteFood(Point& newHead, Point& food)
+bool SecondSnake::ifAteFood(Point& newHead, Point& food)
 {
     if (newHead.x == food.x && newHead.y == food.y) 
     {  
         length++;  
-        score += 1;
-        if (score % 5 == 0)
+        secondScore += 1;
+        if (secondScore % 5 == 0)
         {
-            VELOCITY += DELTA_VELOCITY;
+            SECOND_VELOCITY += DELTA_VELOCITY;
         }
         return true;
     } 
@@ -64,7 +59,7 @@ bool Snake::ifAteFood(Point& newHead, Point& food)
     }  
 }
 
-void Snake::checkGameOver(Point& newHead, vector<Point>& wall_position)
+void SecondSnake::checkGameOver(Point& newHead, vector<Point>& wall_position)
 {
     for (auto &p : wall_position)
     {
@@ -93,7 +88,7 @@ void Snake::checkGameOver(Point& newHead, vector<Point>& wall_position)
     }  
 }
 
-bool Snake::move(vector<Point>& wall_position, Point& food) 
+bool SecondSnake::move(vector<Point>& wall_position, Point& food) 
 {  
     Point newHead = head;  
     switch (direction) 
@@ -113,31 +108,31 @@ bool Snake::move(vector<Point>& wall_position, Point& food)
     return ifAte;
 }  
   
-void Snake::changeDirection(char key) 
+void SecondSnake::changeDirection(char key) 
 {  
     switch (key) 
     {  
-        case 'a':  
+        case key_left:  
             if (direction != 2) direction = 0;  
             break;  
-        case 'w':  
+        case key_up:  
             if (direction != 3) direction = 1;  
             break;  
-        case 'd':  
+        case key_right:  
             if (direction != 0) direction = 2;  
             break;  
-        case 's':  
+        case key_down:  
             if (direction != 1) direction = 3;  
             break;  
     }   
 }  
   
-int Snake::getLength()
+int SecondSnake::getLength()
 {  
     return length;  
 }
 
-bool Snake::isGameOver()
+bool SecondSnake::isGameOver()
 {  
     return gameOver;  
 }  

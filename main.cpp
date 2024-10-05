@@ -1,11 +1,15 @@
 #include "game.h"
 #include "game.cpp"
-#include "snake.h"
-#include "snake.cpp"
 #include "menu.h"
 #include "menu.cpp"
 #include "wall.h"
 #include "wall.cpp"
+#include "food.h"
+#include "food.cpp"
+#include "snake.h"
+#include "snake.cpp"
+#include "secondSnake.h"
+#include "secondSnake.cpp"
 
 void backgroundMusic()
 {
