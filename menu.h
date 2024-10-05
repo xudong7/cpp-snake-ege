@@ -19,11 +19,17 @@ using namespace std;
 #define GRID_SIZE 20  
 #define WINDOW_WIDTH 1000  
 #define WINDOW_HEIGHT 600  
-int VELOCITY = 6;
+double VELOCITY = 6;
 int GLOBAL_RATE = 200 - VELOCITY;
 bool isRunning = false;
 int score = 0;
 bool gameOver = false;
+int mode[2] = {1, 0};
+
+struct Point 
+{  
+    int x, y;  
+};  
 
 class Menu
 {
@@ -31,6 +37,11 @@ class Menu
 public:
     Menu() {}
     void showMenu();
+    void chooseGameMode();
+    void howToPlay();
     void listenMenu();
+    void listenHowToPlay();
+    void listenGameMode();
+    void setMode(int m1, int m2);
     void reset();
 };

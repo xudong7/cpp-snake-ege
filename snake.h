@@ -2,11 +2,6 @@
   
 #include "menu.h"
 
-struct Point 
-{  
-    int x, y;  
-};  
-  
 class Snake 
 {  
 private:  

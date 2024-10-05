@@ -61,7 +61,7 @@ bool Snake::ifAteFood(Point& newHead)
         score += 1;
         if (score % 5 == 0)
         {
-            VELOCITY += 1;
+            VELOCITY += 0.5;
         }
         food.x = rand() % ((WINDOW_WIDTH - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;  
         food.y = rand() % ((WINDOW_HEIGHT - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE; 
