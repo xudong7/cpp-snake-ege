@@ -45,8 +45,6 @@ void Snake::printScore()
 
 void Snake::draw()
 {   
-    // printScore();
-
     putimage(food.x, food.y, foodImg);  
 
     for (size_t i = 0; i < body.size(); ++i) {  

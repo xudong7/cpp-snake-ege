@@ -1,11 +1,6 @@
 #include "menu.h"
 #include "game.h"
 
-Menu::Menu()
-{
-
-}
-
 void Menu::showMenu()
 {
     setfont(40, 0, "consolas");

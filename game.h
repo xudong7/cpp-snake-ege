@@ -2,17 +2,7 @@
 
 #include "menu.h"
 #include "snake.h"
-
-class Wall
-{
-    PIMAGE wallImg;
-    vector<Point> wall_position;
-public:
-    Wall();
-    void draw();
-    void generateRandomly(Point& food);
-    vector<Point>& getWallPosition() { return wall_position; }
-};
+#include "wall.h"
 
 class Game
 {

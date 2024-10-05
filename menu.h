@@ -10,6 +10,11 @@
 #include <windows.h>
 #include <iostream>
 #include <algorithm>
+
+#include <cstdio>
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
+
 using namespace std;
 #define GRID_SIZE 20  
 #define WINDOW_WIDTH 1000  
@@ -24,7 +29,7 @@ class Menu
 {
 
 public:
-    Menu();
+    Menu() {}
     void showMenu();
     void listenMenu();
     void reset();
