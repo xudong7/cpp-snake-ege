@@ -53,6 +53,11 @@ void Game::updateRandomWall(bool& ifAte, bool& ifSecondAte, int mode[])
 
 bool Game::checkGameOver(int mode[])
 {
+    if (isQuit)
+    {
+        return false;
+    }
+
     if (mode[0] == 1 && mode[1] == 0)
     {
         if (isRunning && !snake.isGameOver())
@@ -77,7 +82,7 @@ bool Game::checkGameOver(int mode[])
     }
 }
 
-void Game::reportScore(Snake& snake, SecondSnake& secondSnake)
+void Game::reportScore()
 {
     char buffer[100];
     if (mode[0] == 1 && mode[1] == 0)
@@ -102,6 +107,7 @@ void Game::run()
     while (checkGameOver(mode)) 
     {  
         cleardevice();
+
         if (kbhit()) 
         {  
             char key = getch();  
@@ -118,7 +124,7 @@ void Game::run()
             {
                 secondSnake.changeDirection(key); 
             }
-        }  
+        }     
 
         snakeAction(ifAte, ifSecondAte, mode);
 
@@ -135,6 +141,11 @@ void Game::run()
         delay_fps(VELOCITY);
     }  
 
-    reportScore(snake, secondSnake);
+    if (isQuit)
+    {
+        return;
+    }
+
+    reportScore();
 }
 

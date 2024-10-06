@@ -23,6 +23,7 @@ using namespace std;
 double VELOCITY = 6;
 double SECOND_VELOCITY = 6;
 bool isRunning = false;
+bool isQuit = false;
 int score = 0;
 int secondScore = 0;
 bool gameOver = false;

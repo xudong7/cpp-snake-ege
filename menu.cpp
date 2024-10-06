@@ -82,7 +82,9 @@ void Menu::listenMenu()
     }
     else if (key == 'q')
     {
+        score = secondScore = 0;
         isRunning = false;
+        isQuit = true;
     }
     else
     {
@@ -101,7 +103,9 @@ void Menu::listenHowToPlay()
     }
     else if (key == 'q')
     {
+        score = secondScore = 0;
         isRunning = false;
+        isQuit = true;
     }
     else
     {
@@ -130,7 +134,9 @@ void Menu::listenGameMode()
     }
     else if (key == 'q')
     {
+        score = secondScore = 0;
         isRunning = false;
+        isQuit = true;
     }
     else
     {
@@ -153,7 +159,9 @@ void Menu::listenStopMenu()
     }
     else if (key == 'q')
     {
+        score = secondScore = 0;
         isRunning = false;
+        isQuit = true;
     }
     else
     {
