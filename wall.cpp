@@ -4,7 +4,7 @@
 Wall::Wall()
 {
     wallImg = newimage();
-    getimage(wallImg, "./snake/assets/wall.jpg");
+    getimage(wallImg, "./assets/wall.jpg");
 }
 
 void Wall::draw()
