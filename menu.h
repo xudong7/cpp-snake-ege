@@ -41,9 +41,11 @@ public:
     void showMenu();
     void chooseGameMode();
     void howToPlay();
+    void stopMenu();
     void listenMenu();
     void listenHowToPlay();
     void listenGameMode();
+    void listenStopMenu();
     void setMode(int m1, int m2);
     void reset();
 };

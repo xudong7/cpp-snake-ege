@@ -41,6 +41,19 @@ void Menu::howToPlay()
     outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 120, "Press 'q' to exit the game");
 }
 
+void Menu::stopMenu()
+{
+    isRunning = false;
+    setfont(40, 0, "consolas");
+    setcolor(GREEN);
+    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 - 50, "Game Paused");
+    setfont(20, 0, "consolas");
+    setcolor(WHITE);
+    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2, "enter space back to the game");
+    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 30, "Press 'r' to go back to main menu");
+    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 60, "Press 'q' to exit the game");
+}
+
 void Menu::setMode(int m1, int m2)
 {
     mode[0] = m1;
@@ -122,6 +135,29 @@ void Menu::listenGameMode()
     else
     {
         listenGameMode();
+    }
+}
+
+void Menu::listenStopMenu()
+{
+    char key = getch();
+    if (key == ' ')
+    {
+        isRunning = true;
+    }
+    else if (key == 'r')
+    {
+        cleardevice();
+        showMenu();
+        listenMenu();
+    }
+    else if (key == 'q')
+    {
+        isRunning = false;
+    }
+    else
+    {
+        stopMenu();
     }
 }
 

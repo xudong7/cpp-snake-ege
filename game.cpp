@@ -77,6 +77,24 @@ bool Game::checkGameOver(int mode[])
     }
 }
 
+void Game::reportScore(Snake& snake, SecondSnake& secondSnake)
+{
+    char buffer[100];
+    if (mode[0] == 1 && mode[1] == 0)
+    {
+        sprintf(buffer, "Game Over! Your score: %d", snake.getScore());
+    }
+    else
+    {
+        if (snake.isGameOver() || secondSnake.isGameOver())
+        {
+            sprintf(buffer, "Game Over! first score: %d, second score: %d", score, secondScore);
+        }
+    }
+    MessageBox(NULL, buffer, "Snake Game", MB_OK);
+    menu.reset();   
+}
+
 void Game::run()
 {
     setbkcolor(BLACK);
@@ -87,6 +105,14 @@ void Game::run()
         if (kbhit()) 
         {  
             char key = getch();  
+
+            if (key == ' ')
+            {
+                menu.stopMenu();
+                menu.listenStopMenu();
+                continue;
+            }
+
             snake.changeDirection(key); 
             if (mode[0] == 0 && mode[1] == 1) 
             {
@@ -97,6 +123,7 @@ void Game::run()
         snakeAction(ifAte, ifSecondAte, mode);
 
         wall.draw(); 
+
         snake.printScore();
         if (mode[0] == 0 && mode[1] == 1)
         {
@@ -108,19 +135,6 @@ void Game::run()
         delay_fps(VELOCITY);
     }  
 
-    char buffer[100];
-    if (mode[0] == 1 && mode[1] == 0)
-    {
-        sprintf(buffer, "Game Over! Your score: %d", score);
-    }
-    else
-    {
-        if (snake.isGameOver() || secondSnake.isGameOver())
-        {
-            sprintf(buffer, "Game Over! first score: %d, second score: %d", score, secondScore);
-        }
-    }
-    MessageBox(NULL, buffer, "Snake Game", MB_OK);
-    menu.reset();
+    reportScore(snake, secondSnake);
 }
 

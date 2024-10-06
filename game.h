@@ -19,5 +19,6 @@ public:
     void snakeAction(bool& ifAte, bool& ifSecondAte, int mode[]);
     void updateRandomWall(bool& ifAte, bool& ifSecondAte, int mode[]);
     bool checkGameOver(int mode[]);   
+    void reportScore(Snake& snake, SecondSnake& secondSnake);
 };
 
