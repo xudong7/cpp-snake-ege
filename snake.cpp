@@ -24,9 +24,9 @@ void Snake::setImages()
     snakeHeadImg = newimage();
     snakeBodyImg = newimage();
     foodImg = newimage();
-    getimage(snakeHeadImg, "./snake/assets/snakeHead.jpg");
-    getimage(snakeBodyImg, "./snake/assets/snakeTail.jpg");
-    getimage(foodImg, "./snake/assets/china.jpg");
+    getimage(snakeHeadImg, "./assets/snakeHead.jpg");
+    getimage(snakeBodyImg, "./assets/snakeTail.jpg");
+    getimage(foodImg, "./assets/china.jpg");
 }
 
 Snake::~Snake() {  

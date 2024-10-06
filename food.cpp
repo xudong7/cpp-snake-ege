@@ -3,13 +3,13 @@
 Food::Food()
 {
     foodImg = newimage();
-    getimage(foodImg, "./snake/assets/food.jpg");
+    getimage(foodImg, "./assets/china.jpg");
 }
 
 void Food::setImages()
 {
     foodImg = newimage();
-    getimage(foodImg, "./snake/assets/food.jpg");
+    getimage(foodImg, "./assets/china.jpg");
 }
 
 void Food::draw()

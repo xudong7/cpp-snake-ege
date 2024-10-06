@@ -9,7 +9,7 @@
 
 void backgroundMusic()
 {
-    mciSendString("open snake/assets/bp_music.mp3 alias bgm", NULL, 0, NULL);
+    mciSendString("open assets/bp_music.mp3 alias bgm", NULL, 0, NULL);
     mciSendString("play bgm", NULL, 0, NULL);
 }
 
