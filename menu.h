@@ -28,6 +28,9 @@ int secondScore = 0;
 // bool gameOver = false;
 int mode[2] = {1, 0};
 int wallType[4] = {1, 0, 0, 0};
+int wantScore = 20;
+
+
 
 struct Point 
 {  
@@ -36,21 +39,27 @@ struct Point
 
 class Menu
 {
-
+    PIMAGE snakeTitle;
+    PIMAGE gameOverPic;
+    PIMAGE leftsnakepic;
+    PIMAGE rightsnakepic;
 public:
-    Menu() {}
+    Menu();
+    void setImages();
     void showMenu();
     void chooseGameMode();
     void howToPlay();
     void chooseWallType();
     void stopMenu();
     void showGameOver();
+    void showGameWin();
     void listenMenu();
     void listenHowToPlay();
     void listenGameMode();
     void listenChooseWallType();
     void listenStopMenu();
     void listenGameOver();
+    void listenGameWin();
     void setMode(int m1, int m2);
     void reset();
 };

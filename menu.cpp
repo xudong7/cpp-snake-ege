@@ -1,11 +1,28 @@
 #include "menu.h"
 #include "game.h"
 
+Menu::Menu()
+{
+    setImages();
+}
+
+void Menu::setImages()
+{
+    snakeTitle = newimage();
+    gameOverPic = newimage();
+    leftsnakepic = newimage();
+    rightsnakepic = newimage();
+    getimage(snakeTitle, "./cpp-snake-ege/assets/snakeTitle.jpg");
+    getimage(gameOverPic, "./cpp-snake-ege/assets/gameoverpic.jpg");
+    getimage(leftsnakepic, "./cpp-snake-ege/assets/leftsnakepic.jpg");
+    getimage(rightsnakepic, "./cpp-snake-ege/assets/rightsnakepic.jpg");
+}
+
 void Menu::showMenu()
 {
-    setfont(40, 0, "consolas");
-    setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** Welcome to Snake Game ******");
+    putimage(WINDOW_WIDTH/3, WINDOW_HEIGHT/3, snakeTitle);
+    putimage(WINDOW_WIDTH/3 - 70, WINDOW_HEIGHT/3 + 10, rightsnakepic);
+    putimage(WINDOW_WIDTH/3 + 300, WINDOW_HEIGHT/3 + 10, leftsnakepic);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'r' to choose game mode --");
@@ -15,9 +32,9 @@ void Menu::showMenu()
 
 void Menu::chooseGameMode()
 {
-    setfont(40, 0, "consolas");
-    setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "******  Change Player Mode   ******");
+    putimage(WINDOW_WIDTH/3, WINDOW_HEIGHT/3, snakeTitle);
+    putimage(WINDOW_WIDTH/3 - 70, WINDOW_HEIGHT/3 + 10, rightsnakepic);
+    putimage(WINDOW_WIDTH/3 + 300, WINDOW_HEIGHT/3 + 10, leftsnakepic);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press '1' single player mode --");
@@ -28,26 +45,26 @@ void Menu::chooseGameMode()
 
 void Menu::howToPlay()
 {
-    setfont(40, 0, "consolas");
-    setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** How to Play Snake Game ******");
+    putimage(WINDOW_WIDTH/3, WINDOW_HEIGHT/3, snakeTitle);
+    putimage(WINDOW_WIDTH/3 - 70, WINDOW_HEIGHT/3 + 10, rightsnakepic);
+    putimage(WINDOW_WIDTH/3 + 300, WINDOW_HEIGHT/3 + 10, leftsnakepic);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "w and ¡ü => up");
+    outtextxy(WINDOW_WIDTH/3 + 20, WINDOW_HEIGHT/2, "w and ¡ü => up");
     outtextxy(WINDOW_WIDTH/3 + 150, WINDOW_HEIGHT/2, "s and ¡ý => down");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "a and ¡û => left");
+    outtextxy(WINDOW_WIDTH/3 + 20, WINDOW_HEIGHT/2 + 30, "a and ¡û => left");
     outtextxy(WINDOW_WIDTH/3 + 150, WINDOW_HEIGHT/2 + 30, "d and ¡ú => right");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "Eat food to get score");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "Don't hit the wall or yourself");
+    outtextxy(WINDOW_WIDTH/3 + 20, WINDOW_HEIGHT/2 + 60, "Eat food to get score");
+    outtextxy(WINDOW_WIDTH/3 + 20, WINDOW_HEIGHT/2 + 90, "Don't hit the wall or yourself");
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 150, "-- Press 'r' to go back to main menu --");
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 180, "-- Press 'q' to exit the game --");
 }
 
 void Menu::chooseWallType()
 {
-    setfont(40, 0, "consolas");
-    setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "******   Choose Wall Type   ******");
+    putimage(WINDOW_WIDTH/3, WINDOW_HEIGHT/3, snakeTitle);
+    putimage(WINDOW_WIDTH/3 - 70, WINDOW_HEIGHT/3 + 10, rightsnakepic);
+    putimage(WINDOW_WIDTH/3 + 300, WINDOW_HEIGHT/3 + 10, leftsnakepic);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press '1' to choose simple mode --");
@@ -61,9 +78,9 @@ void Menu::chooseWallType()
 void Menu::stopMenu()
 {
     isRunning = false;
-    setfont(40, 0, "consolas");
-    setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "******     Game Paused     ******");
+    putimage(WINDOW_WIDTH/3, WINDOW_HEIGHT/3, snakeTitle);
+    putimage(WINDOW_WIDTH/3 - 70, WINDOW_HEIGHT/3 + 10, rightsnakepic);
+    putimage(WINDOW_WIDTH/3 + 300, WINDOW_HEIGHT/3 + 10, leftsnakepic);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press space back to the game --");
@@ -74,9 +91,7 @@ void Menu::stopMenu()
 void Menu::showGameOver()
 {
     cleardevice();
-    setfont(60, 0, "consolas");
-    setcolor(RED);
-    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** Game Over ******");
+    putimage(WINDOW_WIDTH/4, WINDOW_HEIGHT/3 - 20, gameOverPic);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
     char buffer[100];
@@ -91,6 +106,29 @@ void Menu::showGameOver()
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, buffer);
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' back to main menu --");
     outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
+}
+
+void Menu::showGameWin()
+{
+    cleardevice();
+    setfont(60, 0, "consolas");
+    setcolor(RED);
+    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** Game Win ******");
+    setfont(20, 0, "consolas");
+    setcolor(WHITE);
+    char buffer[100];
+    if (mode[0] == 1 && mode[1] == 0)
+    {
+        sprintf(buffer, "   Your score: %d", score);
+    }
+    else
+    {
+        sprintf(buffer, "   first score: %d, second score: %d", score, secondScore);
+    }
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, buffer);
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'f' to next game --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game --");
 }
 
 void Menu::setMode(int m1, int m2)
