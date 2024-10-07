@@ -142,18 +142,27 @@ void Menu::listenMenu()
     char key = getch();
     if (key == 'r')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'r' to choose game mode --");
+        Sleep(200);
         cleardevice();
         chooseGameMode();
         listenGameMode();
     }
     else if (key == 'h')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'h' to know how to play --");
+        Sleep(200);
         cleardevice();
         howToPlay();
         listenHowToPlay();
     }
     else if (key == 'q')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game    --");
+        Sleep(200);
         score = secondScore = 0;
         isRunning = false;
         isQuit = true;
@@ -169,12 +178,18 @@ void Menu::listenHowToPlay()
     char key = getch();
     if (key == 'r')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 150, "-- Press 'r' to go back to main menu --");
+        Sleep(200);
         cleardevice();
         showMenu();
         listenMenu();
     }
     else if (key == 'q')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 180, "-- Press 'q' to exit the game --");
+        Sleep(200);
         score = secondScore = 0;
         isRunning = false;
         isQuit = true;
@@ -190,6 +205,9 @@ void Menu::listenGameMode()
     char key = getch();
     if (key == '1')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press '1' single player mode --");
+        Sleep(200);
         setMode(1, 0);
         cleardevice();
         chooseWallType();
@@ -197,6 +215,9 @@ void Menu::listenGameMode()
     }
     else if (key == '2')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press '2' double player mode --");
+        Sleep(200);
         setMode(0, 1);
         cleardevice();
         chooseWallType();
@@ -204,12 +225,18 @@ void Menu::listenGameMode()
     }
     else if (key == 'r')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu  --");
+        Sleep(200);
         cleardevice();
         showMenu();
         listenMenu();
     }
     else if (key == 'q')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game   --");
+        Sleep(200);
         score = secondScore = 0;
         isRunning = false;
         isQuit = true;
@@ -225,36 +252,54 @@ void Menu::listenChooseWallType()
     char key = getch();
     if (key == '1')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press '1' to choose simple mode --");
+        Sleep(200);
         isRunning = true;
         wallType[0] = 1;
         wallType[1] = wallType[2] = wallType[3] = 0;
     }
     else if (key == '2')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press '2' to choose medium mode --");
+        Sleep(200);
         isRunning = true;
         wallType[1] = 1;
         wallType[0] = wallType[2] = wallType[3] = 0;
     }
     else if (key == '3')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press '3' to choose complex mode --");
+        Sleep(200);
         isRunning = true;
         wallType[2] = 1;
         wallType[0] = wallType[1] = wallType[3] = 0;
     }
     else if (key == '4')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press '4' to choose demon mode --");
+        Sleep(200);
         isRunning = true;
         wallType[3] = 1;
         wallType[0] = wallType[1] = wallType[2] = 0;
     }
     else if (key == 'r')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 120, "-- Press 'r' to go back to main menu --");
+        Sleep(200);
         cleardevice();
         showMenu();
         listenMenu();
     }
     else if (key == 'q')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 150, "-- Press 'q' to exit the game --");
+        Sleep(200);
         score = secondScore = 0;
         isRunning = false;
         isQuit = true;
@@ -270,14 +315,23 @@ void Menu::listenStopMenu()
     char key = getch();
     if (key == ' ')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press space back to the game --");
+        Sleep(200);
         isRunning = true;
     }
     else if (key == 'r')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' to go back to main menu --");
+        Sleep(200);
         reset();
     }
     else if (key == 'q')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
+        Sleep(200);
         score = secondScore = 0;
         isRunning = false;
         isQuit = true;
@@ -293,10 +347,16 @@ void Menu::listenGameOver()
     char key = getch();
     if (key == 'r')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' back to main menu --");
+        Sleep(200);
         reset();
     }
     else if (key == 'q')
     {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
+        Sleep(200);
         score = secondScore = 0;
         isRunning = false;
         isQuit = true;
