@@ -27,6 +27,7 @@ int score = 0;
 int secondScore = 0;
 // bool gameOver = false;
 int mode[2] = {1, 0};
+int wallType[4] = {1, 0, 0, 0};
 
 struct Point 
 {  
@@ -41,10 +42,12 @@ public:
     void showMenu();
     void chooseGameMode();
     void howToPlay();
+    void chooseWallType();
     void stopMenu();
     void listenMenu();
     void listenHowToPlay();
     void listenGameMode();
+    void listenChooseWallType();
     void listenStopMenu();
     void setMode(int m1, int m2);
     void reset();

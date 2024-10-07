@@ -6,7 +6,7 @@ Game::Game()
     menu.listenMenu();
 }
 
-void Game::snakeAction(bool& ifAte, bool& ifSecondAte, int mode[])
+void Game::snakeAction(bool& ifAte, bool& ifSecondAte)
 {
     if (mode[0] == 1 && mode[1] == 0)
     {
@@ -25,13 +25,13 @@ void Game::snakeAction(bool& ifAte, bool& ifSecondAte, int mode[])
     }
 }
 
-void Game::updateRandomWall(bool& ifAte, bool& ifSecondAte, int mode[])
+void Game::updateRandomWall(bool& ifAte, bool& ifSecondAte)
 {
     if (mode[0] == 1 && mode[1] == 0)
     {
         if (ifAte)
         {
-            wall.generateRandomly(food.getFood());
+            wall.generateRandomly(food.getFood(), snake, secondSnake);
             ifAte = false;
         }
         return;
@@ -40,18 +40,18 @@ void Game::updateRandomWall(bool& ifAte, bool& ifSecondAte, int mode[])
     {
         if (ifAte)
         {
-            wall.generateRandomly(food.getFood());
+            wall.generateRandomly(food.getFood(), snake, secondSnake);
             ifAte = false;
         }
         if (ifSecondAte)
         {
-            wall.generateRandomly(food.getFood());
+            wall.generateRandomly(food.getFood(), snake, secondSnake);
             ifSecondAte = false;
         }
     }
 }
 
-bool Game::checkGameOver(int mode[])
+bool Game::checkGameOver()
 {
     if (isQuit)
     {
@@ -128,7 +128,8 @@ void Game::run()
 {
     setbkcolor(BLACK);
     bool ifAte, ifSecondAte;
-    while (checkGameOver(mode)) 
+    wall.initWallDraw();
+    while (checkGameOver()) 
     {  
         cleardevice();
 
@@ -150,7 +151,7 @@ void Game::run()
             }
         }     
 
-        snakeAction(ifAte, ifSecondAte, mode);
+        snakeAction(ifAte, ifSecondAte);
         twoSnakeCollision();
 
         wall.draw(); 
@@ -161,9 +162,9 @@ void Game::run()
             secondSnake.printScore();
         }
             
-        updateRandomWall(ifAte, ifSecondAte, mode);
+        updateRandomWall(ifAte, ifSecondAte);
 
-        delay_fps(VELOCITY);
+        delay_fps(0.5 * (VELOCITY + SECOND_VELOCITY));
     }  
 
     if (isQuit)

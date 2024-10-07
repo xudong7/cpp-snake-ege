@@ -1,5 +1,4 @@
 #include "wall.h"
-#include "game.h"
 
 Wall::Wall()
 {
@@ -8,34 +7,94 @@ Wall::Wall()
     // getimage(wallImg, "./assets/wall.jpg"); // exe file
 }
 
+void Wall::initWallDraw()
+{
+    if (wallType[0] == 1)
+    {
+        
+    }
+    else if (wallType[1] == 1)
+    {
+        for (int i = GRID_SIZE; i < WINDOW_WIDTH - GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({i, GRID_SIZE});
+            wall_position.push_back({i, WINDOW_HEIGHT - 2 * GRID_SIZE});
+        }
+    }
+    else if (wallType[2] == 1)
+    {
+        for (int i = GRID_SIZE; i < WINDOW_HEIGHT - GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH - 2 * GRID_SIZE, i});
+        }
+    }
+    else if (wallType[3] == 1)
+    {
+        for (int i = 3 * GRID_SIZE; i < WINDOW_WIDTH / 2 - 3 * GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({i, 3 * GRID_SIZE});
+            wall_position.push_back({i, WINDOW_HEIGHT / 2});
+            wall_position.push_back({i, WINDOW_HEIGHT - 3 * GRID_SIZE});
+        }
+
+        for (int i = WINDOW_WIDTH / 2 + 3 * GRID_SIZE; i < WINDOW_WIDTH - 3 * GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({i, 3 * GRID_SIZE});
+            wall_position.push_back({i, WINDOW_HEIGHT / 2});
+            wall_position.push_back({i, WINDOW_HEIGHT - 3 * GRID_SIZE});
+        }
+
+        for (int i = 3 * GRID_SIZE; i < WINDOW_HEIGHT / 2 - 3 * GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({3 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2, i});
+            wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
+        }
+
+        for (int i = WINDOW_HEIGHT / 2 + 3 * GRID_SIZE; i < WINDOW_HEIGHT - 3 * GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({3 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2, i});
+            wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
+        }
+    }
+}
+
 void Wall::draw()
 {
-    for (int i = 0; i < WINDOW_WIDTH; i += GRID_SIZE)
-    {
-        putimage(i, 0, wallImg);
-        putimage(i, WINDOW_HEIGHT - GRID_SIZE, wallImg);
-    }
-
-    for (int i = 0; i < WINDOW_HEIGHT; i += GRID_SIZE)
-    {
-        putimage(0, i, wallImg);
-        putimage(WINDOW_WIDTH - GRID_SIZE, i, wallImg);
-    }
 
     for (auto &p : wall_position)
     {
         putimage(p.x, p.y, wallImg);
     }
+    
 }
 
-void Wall::generateRandomly(Point& food)
+void Wall::generateRandomly(Point& food, Snake& snake, SecondSnake& secondSnake)
 {
     int x = rand() % ((WINDOW_WIDTH - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
     int y = rand() % ((WINDOW_HEIGHT - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
     if (x == food.x && y == food.y)
     {
-        generateRandomly(food);
+        generateRandomly(food, snake, secondSnake);
         return;
+    }
+    for (auto &p : snake.getBody())
+    {
+        if (x == p.x && y == p.y)
+        {
+            generateRandomly(food, snake, secondSnake);
+            return;
+        }
+    }
+    for (auto &p : secondSnake.getBody())
+    {
+        if (x == p.x && y == p.y)
+        {
+            generateRandomly(food, snake, secondSnake);
+            return;
+        }
     }
     Point p = {x, y};
     wall_position.push_back(p);

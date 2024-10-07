@@ -81,13 +81,22 @@ void SecondSnake::checkGameOver(Point& newHead, vector<Point>& wall_position)
         }  
     }  
 
-    if (newHead.x < GRID_SIZE 
-        || newHead.x >= WINDOW_WIDTH - GRID_SIZE 
-        || newHead.y < GRID_SIZE 
-        || newHead.y >= WINDOW_HEIGHT - GRID_SIZE) 
-    {  
-        gameOver = true;  
-    }  
+    for (auto &p: wall_position)
+    {
+        if (p.x == newHead.x && p.y == newHead.y)
+        {
+            gameOver = true;
+            break;
+        }
+    }
+
+    // if (newHead.x < GRID_SIZE 
+    //     || newHead.x >= WINDOW_WIDTH - GRID_SIZE 
+    //     || newHead.y < GRID_SIZE 
+    //     || newHead.y >= WINDOW_HEIGHT - GRID_SIZE) 
+    // {  
+    //     gameOver = true;  
+    // }  
 }
 
 bool SecondSnake::move(vector<Point>& wall_position, Point& food) 
@@ -100,6 +109,11 @@ bool SecondSnake::move(vector<Point>& wall_position, Point& food)
         case 2: newHead.x += GRID_SIZE; break;  
         case 3: newHead.y += GRID_SIZE; break;  
     }  
+
+    if (newHead.x < 0) newHead.x = WINDOW_WIDTH - GRID_SIZE;
+    if (newHead.x >= WINDOW_WIDTH) newHead.x = GRID_SIZE;
+    if (newHead.y < 0) newHead.y = WINDOW_HEIGHT - GRID_SIZE;
+    if (newHead.y >= WINDOW_HEIGHT) newHead.y = GRID_SIZE;
 
     bool ifAte = ifAteFood(newHead, food);
 
