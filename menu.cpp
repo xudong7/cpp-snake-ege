@@ -12,10 +12,12 @@ void Menu::setImages()
     gameOverPic = newimage();
     leftsnakepic = newimage();
     rightsnakepic = newimage();
+    gameWin = newimage();
     getimage(snakeTitle, "./cpp-snake-ege/assets/snakeTitle.jpg");
     getimage(gameOverPic, "./cpp-snake-ege/assets/gameoverpic.jpg");
     getimage(leftsnakepic, "./cpp-snake-ege/assets/leftsnakepic.jpg");
     getimage(rightsnakepic, "./cpp-snake-ege/assets/rightsnakepic.jpg");
+    getimage(gameWin, "./cpp-snake-ege/assets/win.jpg");
 }
 
 void Menu::showMenu()
@@ -25,9 +27,10 @@ void Menu::showMenu()
     putimage(WINDOW_WIDTH/3 + 300, WINDOW_HEIGHT/3 + 10, leftsnakepic);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'r' to choose game mode --");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'h' to know how to play --");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game    --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'e' to play game --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' to choose game mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'h' to know how to play --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game    --");
 }
 
 void Menu::chooseGameMode()
@@ -111,24 +114,21 @@ void Menu::showGameOver()
 void Menu::showGameWin()
 {
     cleardevice();
-    setfont(60, 0, "consolas");
-    setcolor(RED);
-    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** Game Win ******");
+    putimage(WINDOW_WIDTH/3, WINDOW_HEIGHT/6, gameWin);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    char buffer[100];
-    if (mode[0] == 1 && mode[1] == 0)
-    {
-        sprintf(buffer, "   Your score: %d", score);
-    }
-    else
-    {
-        sprintf(buffer, "   first score: %d, second score: %d", score, secondScore);
-    }
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, buffer);
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'f' to next game --");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu --");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game --");
+    // char buffer[100];
+    // if (mode[0] == 1 && mode[1] == 0)
+    // {
+    //     sprintf(buffer, "   Your score: %d", score);
+    // }
+    // else
+    // {
+    //     sprintf(buffer, "   first score: %d, second score: %d", score, secondScore);
+    // }
+    // outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, buffer);
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' back to main menu --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
 }
 
 void Menu::setMode(int m1, int m2)
@@ -140,7 +140,15 @@ void Menu::setMode(int m1, int m2)
 void Menu::listenMenu()
 {
     char key = getch();
-    if (key == 'r')
+    if (key == 'e')
+    {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'e' to play game --");
+        Sleep(200);
+        cleardevice();
+        isRunning = true;
+    }
+    else if (key == 'r')
     {
         setcolor(GREEN);
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'r' to choose game mode --");
@@ -364,6 +372,31 @@ void Menu::listenGameOver()
     else
     {
         listenGameOver();
+    }
+}
+
+void Menu::listenGameWin()
+{
+    char key = getch();
+    if (key == 'r')
+    {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu --");
+        Sleep(200);
+        reset();
+    }
+    else if (key == 'q')
+    {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game --");
+        Sleep(200);
+        score = secondScore = 0;
+        isRunning = false;
+        isQuit = true;
+    }
+    else
+    {
+        listenGameWin();
     }
 }
 

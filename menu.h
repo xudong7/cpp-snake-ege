@@ -28,7 +28,7 @@ int secondScore = 0;
 // bool gameOver = false;
 int mode[2] = {1, 0};
 int wallType[4] = {1, 0, 0, 0};
-int wantScore = 20;
+int wantScore = 1;
 
 
 
@@ -43,6 +43,7 @@ class Menu
     PIMAGE gameOverPic;
     PIMAGE leftsnakepic;
     PIMAGE rightsnakepic;
+    PIMAGE gameWin;
 public:
     Menu();
     void setImages();

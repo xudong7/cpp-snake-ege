@@ -151,6 +151,13 @@ void Game::run()
             }
         }     
 
+        if (score == wantScore || secondScore == wantScore)
+        {
+            menu.showGameWin();
+            menu.listenGameWin();
+            return;
+        }
+
         snakeAction(ifAte, ifSecondAte);
         twoSnakeCollision();
 
@@ -173,7 +180,7 @@ void Game::run()
     }
 
     // reportScore(); // windows message box
-    
+
     menu.showGameOver();
     menu.listenGameOver();
 }
