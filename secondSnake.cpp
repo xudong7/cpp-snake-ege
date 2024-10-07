@@ -3,8 +3,8 @@
 SecondSnake::SecondSnake() : direction(3), length(2), gameOver(false) 
 {  
     srand(time(nullptr)); 
-    head.x = WINDOW_WIDTH / 2 + 2 * GRID_SIZE;  
-    head.y = WINDOW_HEIGHT / 2;  
+    head.x = WINDOW_WIDTH / 2 + 8 * GRID_SIZE;  
+    head.y = WINDOW_HEIGHT / 2 + 3 * GRID_SIZE;  
     body.push_back({head.x, head.y - GRID_SIZE});  
     body.push_back({head.x, head.y});  
 

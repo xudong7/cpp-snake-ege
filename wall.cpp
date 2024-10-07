@@ -17,45 +17,51 @@ void Wall::initWallDraw()
     {
         for (int i = GRID_SIZE; i < WINDOW_WIDTH - GRID_SIZE; i += GRID_SIZE)
         {
-            wall_position.push_back({i, GRID_SIZE});
-            wall_position.push_back({i, WINDOW_HEIGHT - 2 * GRID_SIZE});
+            wall_position.push_back({i, 2 * GRID_SIZE});
+            wall_position.push_back({i, WINDOW_HEIGHT - 3 * GRID_SIZE});
         }
     }
     else if (wallType[2] == 1)
     {
-        for (int i = GRID_SIZE; i < WINDOW_HEIGHT - GRID_SIZE; i += GRID_SIZE)
+        for (int i = 2 * GRID_SIZE; i < WINDOW_HEIGHT - 2 * GRID_SIZE; i += GRID_SIZE)
         {
-            wall_position.push_back({GRID_SIZE, i});
-            wall_position.push_back({WINDOW_WIDTH - 2 * GRID_SIZE, i});
+            wall_position.push_back({2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 - 6 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 - 2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 + 2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 + 6 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
         }
     }
     else if (wallType[3] == 1)
     {
-        for (int i = 3 * GRID_SIZE; i < WINDOW_WIDTH / 2 - 3 * GRID_SIZE; i += GRID_SIZE)
+        for (int i = 2 * GRID_SIZE; i < WINDOW_WIDTH / 2 - 3 * GRID_SIZE; i += GRID_SIZE)
         {
-            wall_position.push_back({i, 3 * GRID_SIZE});
+            wall_position.push_back({i, 2 * GRID_SIZE});
             wall_position.push_back({i, WINDOW_HEIGHT / 2});
             wall_position.push_back({i, WINDOW_HEIGHT - 3 * GRID_SIZE});
         }
 
-        for (int i = WINDOW_WIDTH / 2 + 3 * GRID_SIZE; i < WINDOW_WIDTH - 3 * GRID_SIZE; i += GRID_SIZE)
+        for (int i = WINDOW_WIDTH / 2 + 3 * GRID_SIZE; i < WINDOW_WIDTH - 2 * GRID_SIZE; i += GRID_SIZE)
         {
-            wall_position.push_back({i, 3 * GRID_SIZE});
+            wall_position.push_back({i, 2 * GRID_SIZE});
             wall_position.push_back({i, WINDOW_HEIGHT / 2});
             wall_position.push_back({i, WINDOW_HEIGHT - 3 * GRID_SIZE});
         }
 
         for (int i = 3 * GRID_SIZE; i < WINDOW_HEIGHT / 2 - 3 * GRID_SIZE; i += GRID_SIZE)
         {
-            wall_position.push_back({3 * GRID_SIZE, i});
-            wall_position.push_back({WINDOW_WIDTH / 2, i});
+            wall_position.push_back({2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 - 2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 + GRID_SIZE, i});
             wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
         }
 
-        for (int i = WINDOW_HEIGHT / 2 + 3 * GRID_SIZE; i < WINDOW_HEIGHT - 3 * GRID_SIZE; i += GRID_SIZE)
+        for (int i = WINDOW_HEIGHT / 2 + 4 * GRID_SIZE; i < WINDOW_HEIGHT - 3 * GRID_SIZE; i += GRID_SIZE)
         {
-            wall_position.push_back({3 * GRID_SIZE, i});
-            wall_position.push_back({WINDOW_WIDTH / 2, i});
+            wall_position.push_back({2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 - 2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH / 2 + GRID_SIZE, i});
             wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
         }
     }

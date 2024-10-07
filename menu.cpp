@@ -5,54 +5,57 @@ void Menu::showMenu()
 {
     setfont(40, 0, "consolas");
     setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 - 50, "Welcome to Snake Game");
+    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** Welcome to Snake Game ******");
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2, "Press 'r' to choose different game mode");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 30, "Press 'h' to know how to play");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 60, "Press 'q' to exit the game");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'r' to choose game mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'h' to know how to play --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game    --");
 }
 
 void Menu::chooseGameMode()
 {
     setfont(40, 0, "consolas");
     setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 - 50, "Change Game Mode");
+    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "******  Change Player Mode   ******");
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2, "Press '1' single player mode");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 30, "Press '2' double player mode");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 60, "Press 'r' to go back to main menu");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 90, "Press 'q' to exit the game");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press '1' single player mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press '2' double player mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu  --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game   --");
 }
 
 void Menu::howToPlay()
 {
     setfont(40, 0, "consolas");
     setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 - 50, "How to Play Snake Game");
+    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** How to Play Snake Game ******");
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2, "Use 'w','a','s','d' keys to move the snake");
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 30, "Eat the food to increase the length of the snake");
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 60, "Avoid hitting the walls and the snake itself");
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 120, "Press 'r' to go back to main menu");
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 150, "Press 'q' to exit the game");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "w and ¡ü => up");
+    outtextxy(WINDOW_WIDTH/3 + 150, WINDOW_HEIGHT/2, "s and ¡ý => down");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "a and ¡û => left");
+    outtextxy(WINDOW_WIDTH/3 + 150, WINDOW_HEIGHT/2 + 30, "d and ¡ú => right");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "Eat food to get score");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "Don't hit the wall or yourself");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 150, "-- Press 'r' to go back to main menu --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 180, "-- Press 'q' to exit the game --");
 }
 
 void Menu::chooseWallType()
 {
     setfont(40, 0, "consolas");
     setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 - 50, "Choose Wall Type");
+    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "******   Choose Wall Type   ******");
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2, "Press '1' to choose simple mode");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 30, "Press '2' to choose medium mode");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 60, "Press '3' to choose complex mode");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 90, "Press '4' to choose demon mode");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 120, "Press 'r' to go back to main menu");
-    outtextxy(WINDOW_WIDTH/3 + 70, WINDOW_HEIGHT/2 + 150, "Press 'q' to exit the game");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press '1' to choose simple mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press '2' to choose medium mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press '3' to choose complex mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press '4' to choose demon mode --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 120, "-- Press 'r' to go back to main menu --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 150, "-- Press 'q' to exit the game --");
 }
 
 void Menu::stopMenu()
@@ -60,12 +63,34 @@ void Menu::stopMenu()
     isRunning = false;
     setfont(40, 0, "consolas");
     setcolor(GREEN);
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 - 50, "Game Paused");
+    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "******     Game Paused     ******");
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2, "enter space back to the game");
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 30, "Press 'r' to go back to main menu");
-    outtextxy(WINDOW_WIDTH/3 + 30, WINDOW_HEIGHT/2 + 60, "Press 'q' to exit the game");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press space back to the game --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' to go back to main menu --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
+}
+
+void Menu::showGameOver()
+{
+    cleardevice();
+    setfont(60, 0, "consolas");
+    setcolor(RED);
+    outtextxy(WINDOW_WIDTH/6, WINDOW_HEIGHT/3, "****** Game Over ******");
+    setfont(20, 0, "consolas");
+    setcolor(WHITE);
+    char buffer[100];
+    if (mode[0] == 1 && mode[1] == 0)
+    {
+        sprintf(buffer, "   Your score: %d", score);
+    }
+    else
+    {
+        sprintf(buffer, "   first score: %d, second score: %d", score, secondScore);
+    }
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, buffer);
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' back to main menu --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
 }
 
 void Menu::setMode(int m1, int m2)
@@ -128,12 +153,14 @@ void Menu::listenGameMode()
     if (key == '1')
     {
         setMode(1, 0);
+        cleardevice();
         chooseWallType();
         listenChooseWallType();
     }
     else if (key == '2')
     {
         setMode(0, 1);
+        cleardevice();
         chooseWallType();
         listenChooseWallType();
     }
@@ -209,9 +236,7 @@ void Menu::listenStopMenu()
     }
     else if (key == 'r')
     {
-        cleardevice();
-        showMenu();
-        listenMenu();
+        reset();
     }
     else if (key == 'q')
     {
@@ -222,6 +247,25 @@ void Menu::listenStopMenu()
     else
     {
         stopMenu();
+    }
+}
+
+void Menu::listenGameOver()
+{
+    char key = getch();
+    if (key == 'r')
+    {
+        reset();
+    }
+    else if (key == 'q')
+    {
+        score = secondScore = 0;
+        isRunning = false;
+        isQuit = true;
+    }
+    else
+    {
+        listenGameOver();
     }
 }
 

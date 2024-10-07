@@ -44,11 +44,13 @@ public:
     void howToPlay();
     void chooseWallType();
     void stopMenu();
+    void showGameOver();
     void listenMenu();
     void listenHowToPlay();
     void listenGameMode();
     void listenChooseWallType();
     void listenStopMenu();
+    void listenGameOver();
     void setMode(int m1, int m2);
     void reset();
 };

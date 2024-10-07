@@ -172,6 +172,9 @@ void Game::run()
         return;
     }
 
-    reportScore();
+    // reportScore(); // windows message box
+    
+    menu.showGameOver();
+    menu.listenGameOver();
 }
 
