@@ -10,6 +10,8 @@
 #include "snake.cpp"
 #include "secondSnake.h"
 #include "secondSnake.cpp"
+#include "shit.h"
+#include "shit.cpp"
 
 // all global parameters in menu.h
 int main() 

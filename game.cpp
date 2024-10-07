@@ -6,20 +6,26 @@ Game::Game()
     menu.listenMenu();
 }
 
-void Game::snakeAction(bool& ifAte, bool& ifSecondAte)
+void Game::snakeAction(bool& ifAte, bool& ifSecondAte, bool& ifAteShit)
 {
     if (mode[0] == 1 && mode[1] == 0)
     {
-        ifAte = snake.move(wall.getWallPosition(), food.getFood()); 
+        auto res = snake.move(wall.getWallPosition(), food.getFood(), shit.getShit()); 
+        ifAte = res.first;
+        ifAteShit = res.second;
         food.draw(wall.getWallPosition(), ifAte);
+        shit.draw(wall.getWallPosition(), ifAteShit);
         snake.draw();  
     }
     else
     {
-        ifAte = snake.move(wall.getWallPosition(), food.getFood()); 
+        auto res = snake.move(wall.getWallPosition(), food.getFood(), shit.getShit()); 
+        ifAte = res.first;
+        ifAteShit = res.second;
         ifSecondAte = secondSnake.move(wall.getWallPosition(), food.getFood());
         food.draw(wall.getWallPosition(), ifAte);
         food.draw(wall.getWallPosition(), ifSecondAte);
+        shit.draw(wall.getWallPosition(), ifAteShit);
         snake.draw();   
         secondSnake.draw();
     }
@@ -127,7 +133,7 @@ void Game::twoSnakeCollision()
 void Game::run()
 {
     setbkcolor(BLACK);
-    bool ifAte, ifSecondAte;
+    bool ifAte, ifSecondAte, ifAteShit;
     wall.initWallDraw();
     while (checkGameOver()) 
     {  
@@ -158,7 +164,7 @@ void Game::run()
             return;
         }
 
-        snakeAction(ifAte, ifSecondAte);
+        snakeAction(ifAte, ifSecondAte, ifAteShit);
         twoSnakeCollision();
 
         wall.draw(); 

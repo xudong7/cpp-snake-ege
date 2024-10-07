@@ -381,14 +381,14 @@ void Menu::listenGameWin()
     if (key == 'r')
     {
         setcolor(GREEN);
-        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu --");
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' back to main menu --");
         Sleep(200);
         reset();
     }
     else if (key == 'q')
     {
         setcolor(GREEN);
-        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game --");
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
         Sleep(200);
         score = secondScore = 0;
         isRunning = false;

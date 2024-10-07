@@ -59,11 +59,27 @@ bool Snake::ifAteFood(Point& newHead, Point& food)
         }
         return true;
     } 
-    else 
-    {  
-        body.erase(body.begin());  
+    else
+    {
         return false;
-    }  
+    }
+}
+
+bool Snake::ifShit(Point& newHead, Point& shit)
+{
+    if (newHead.x == shit.x && newHead.y == shit.y) 
+    {   
+        score -= 1;
+        if (score % 5 == 0)
+        {
+            VELOCITY += DELTA_VELOCITY;
+        }
+        return true;
+    } 
+    else
+    {
+        return false;
+    }
 }
 
 void Snake::checkGameOver(Point& newHead, vector<Point>& wall_position)
@@ -94,17 +110,9 @@ void Snake::checkGameOver(Point& newHead, vector<Point>& wall_position)
             break;
         }
     }
-
-    // if (newHead.x < GRID_SIZE 
-    //     || newHead.x >= WINDOW_WIDTH - GRID_SIZE 
-    //     || newHead.y < GRID_SIZE 
-    //     || newHead.y >= WINDOW_HEIGHT - GRID_SIZE) 
-    // {  
-    //     gameOver = true;  
-    // }  
 }
 
-bool Snake::move(vector<Point>& wall_position, Point& food) 
+pair<bool, bool> Snake::move(vector<Point>& wall_position, Point& food, Point& shit) 
 {  
     Point newHead = head;  
     switch (direction) 
@@ -121,12 +129,18 @@ bool Snake::move(vector<Point>& wall_position, Point& food)
     if (newHead.y >= WINDOW_HEIGHT) newHead.y = 0;
 
     bool ifAte = ifAteFood(newHead, food);
+    bool ifAteShit = ifShit(newHead, shit);
+
+    if (!ifAte && !ifAteShit)
+    {
+        body.erase(body.begin());  
+    }
 
     checkGameOver(newHead, wall_position); 
 
     head = newHead;  
     body.push_back(head);
-    return ifAte;
+    return make_pair(ifAte, ifAteShit);
 }  
   
 void Snake::changeDirection(char key) 
