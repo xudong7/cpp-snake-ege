@@ -28,5 +28,8 @@ public:
     bool isGameOver();  
     int getLength();
     int getScore();
+    Point getHead();
+    vector<Point>& getBody();
+    void setGameOver();
 };  
   

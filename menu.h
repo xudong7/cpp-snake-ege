@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>  
-#include <ege.h>
 #include <graphics.h> 
 #include <conio.h> 
 #include <cstdlib>  
@@ -26,7 +25,7 @@ bool isRunning = false;
 bool isQuit = false;
 int score = 0;
 int secondScore = 0;
-bool gameOver = false;
+// bool gameOver = false;
 int mode[2] = {1, 0};
 
 struct Point 

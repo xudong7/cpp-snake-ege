@@ -9,7 +9,8 @@ Food::Food()
 void Food::setImages()
 {
     foodImg = newimage();
-    getimage(foodImg, "cpp-snake-ege/assets/china.jpg");
+    getimage(foodImg, "./cpp-snake-ege/assets/china.jpg");
+    // getimage(foodImg, "./assets/china.jpg"); // exe file
 }
 
 void Food::draw(vector<Point>& wall_position, int ifAteFood)

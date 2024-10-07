@@ -11,16 +11,13 @@
 #include "secondSnake.h"
 #include "secondSnake.cpp"
 
-void backgroundMusic()
-{
-    mciSendString("open assets/bp_music.mp3 alias bgm", NULL, 0, NULL);
-    mciSendString("play bgm", NULL, 0, NULL);
-}
-
 // all global parameters in menu.h
 int main() 
 {  
-    backgroundMusic();
+    MUSIC bgm;
+
+    bgm.OpenFile("cpp-snake-ege/assets/bp_music.wav");
+    bgm.Play();
 
     setinitmode(0);
     initgraph(WINDOW_WIDTH, WINDOW_HEIGHT); 

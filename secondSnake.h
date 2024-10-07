@@ -27,5 +27,8 @@ public:
     void checkGameOver(Point& newHead, vector<Point>& wall_position);
     bool isGameOver();  
     int getLength();
+    Point getHead();
+    vector<Point>& getBody();
+    void setGameOver();
 };  
   

@@ -175,5 +175,6 @@ void Menu::reset()
 
     cleardevice();
     Game game;
+    score = secondScore = 0;
     game.run();
 }

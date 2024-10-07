@@ -20,5 +20,6 @@ public:
     void updateRandomWall(bool& ifAte, bool& ifSecondAte, int mode[]);
     bool checkGameOver(int mode[]);   
     void reportScore();
+    void twoSnakeCollision();
 };
 

@@ -17,6 +17,8 @@ void SecondSnake::setImages()
     snakeBodyImg = newimage();
     getimage(snakeHeadImg, "./cpp-snake-ege/assets/secondSnakeHead.jpg");
     getimage(snakeBodyImg, "./cpp-snake-ege/assets/secondSnakeTail.jpg");
+    // getimage(foodImg, "./assets/secondSnakeHead.jpg"); // exe file
+    // getimage(foodImg, "./assets/secondSnakeTail.jpg"); // exe file
 }
 
 SecondSnake::~SecondSnake() {  
@@ -137,3 +139,18 @@ bool SecondSnake::isGameOver()
     return gameOver;  
 }  
   
+
+Point SecondSnake::getHead()
+{
+    return head;
+}
+
+vector<Point>& SecondSnake::getBody()
+{
+    return body;
+}
+
+void SecondSnake::setGameOver()
+{
+    gameOver = true;
+}

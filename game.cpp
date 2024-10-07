@@ -100,6 +100,30 @@ void Game::reportScore()
     menu.reset();   
 }
 
+void Game::twoSnakeCollision()
+{
+    if (mode[0] == 0 && mode[1] == 1)
+    {
+        for (auto &p : secondSnake.getBody())
+        {
+            if (p.x == snake.getHead().x && p.y == snake.getHead().y)
+            {
+                snake.setGameOver();
+                break;
+            }
+        }
+
+        for (auto &p : snake.getBody())
+        {
+            if (p.x == secondSnake.getHead().x && p.y == secondSnake.getHead().y)
+            {
+                secondSnake.setGameOver();
+                break;
+            }
+        }
+    }
+}
+
 void Game::run()
 {
     setbkcolor(BLACK);
@@ -127,6 +151,7 @@ void Game::run()
         }     
 
         snakeAction(ifAte, ifSecondAte, mode);
+        twoSnakeCollision();
 
         wall.draw(); 
 
@@ -135,7 +160,7 @@ void Game::run()
         {
             secondSnake.printScore();
         }
-
+            
         updateRandomWall(ifAte, ifSecondAte, mode);
 
         delay_fps(VELOCITY);
