@@ -25,6 +25,7 @@ int main()
     initgraph(WINDOW_WIDTH, WINDOW_HEIGHT); 
 
     Game game;
+    game.init();
     game.run();
   
     getch(); 

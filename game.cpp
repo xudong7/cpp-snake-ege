@@ -2,6 +2,13 @@
 
 Game::Game()
 {
+    
+}
+
+void Game::init()
+{
+    wallType[0] = 1;wallType[1] = wallType[2] = wallType[3] = 0;
+    mode[0] = 1;mode[1] = 0;
     menu.showMenu();
     menu.listenMenu();
 }
@@ -138,7 +145,10 @@ void Game::run()
 {
     setbkcolor(BLACK);
     bool ifAte, ifSecondAte;
+    score = secondScore = 0;
+    VELOCITY = SECOND_VELOCITY = 6;
     wall.initWallDraw();
+    Sleep(200);
     while (checkGameOver()) 
     {  
         cleardevice();
@@ -191,8 +201,10 @@ void Game::run()
     }
 
     // reportScore(); // windows message box
-
-    menu.showGameOver();
-    menu.listenGameOver();
+    if (snake.isGameOver() || secondSnake.isGameOver())
+    {
+        menu.showGameOver();
+        menu.listenGameOver();
+    }
 }
 

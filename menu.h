@@ -27,8 +27,8 @@ int score = 0;
 int secondScore = 0;
 // bool gameOver = false;
 int mode[2] = {1, 0};
-int wallType[4] = {1, 0, 0, 0};
-const int wantScore = 10;
+int wallType[10] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+const int wantScore = 2;
 
 
 
@@ -46,6 +46,7 @@ class Menu
     PIMAGE gameWin;
 public:
     Menu();
+    void initParam();
     void setImages();
     void showMenu();
     void chooseGameMode();
@@ -62,5 +63,6 @@ public:
     void listenGameOver();
     void listenGameWin();
     void setMode(int m1, int m2);
+    void toNextDoor();
     void reset();
 };

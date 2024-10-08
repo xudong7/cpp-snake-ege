@@ -4,7 +4,7 @@ Snake::Snake() : direction(3), length(2), gameOver(false)
 {  
     srand(time(nullptr)); 
     head.x = WINDOW_WIDTH / 2 - 8 * GRID_SIZE;  
-    head.y = WINDOW_HEIGHT / 2 - 6 * GRID_SIZE;  
+    head.y = 5 * GRID_SIZE;  
     body.push_back({head.x, head.y - GRID_SIZE});  
     body.push_back({head.x, head.y});  
 
@@ -105,15 +105,6 @@ void Snake::checkGameOver(Point& newHead, vector<Point>& wall_position)
             break;  
         }  
     }  
-
-    for (auto &p: wall_position)
-    {
-        if (p.x == newHead.x && p.y == newHead.y)
-        {
-            gameOver = true;
-            break;
-        }
-    }
 
     // if (newHead.x < GRID_SIZE 
     //     || newHead.x >= WINDOW_WIDTH - GRID_SIZE 

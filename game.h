@@ -17,6 +17,7 @@ class Game
     Shit shit;
 public:
     Game();
+    void init();
     void run();
     void snakeAction(bool& ifAte, bool& ifSecondAte);
     void updateRandomWallAndShit(bool& ifAte, bool& ifSecondAte);

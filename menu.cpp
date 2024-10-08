@@ -6,6 +6,16 @@ Menu::Menu()
     setImages();
 }
 
+void Menu::initParam()
+{
+    VELOCITY = 6;
+    SECOND_VELOCITY = 6;
+    isRunning = false;
+    isQuit = false;
+    score = 0;
+    secondScore = 0;
+}
+
 void Menu::setImages()
 {
     snakeTitle = newimage();
@@ -117,18 +127,9 @@ void Menu::showGameWin()
     putimage(WINDOW_WIDTH/3, WINDOW_HEIGHT/6, gameWin);
     setfont(20, 0, "consolas");
     setcolor(WHITE);
-    // char buffer[100];
-    // if (mode[0] == 1 && mode[1] == 0)
-    // {
-    //     sprintf(buffer, "   Your score: %d", score);
-    // }
-    // else
-    // {
-    //     sprintf(buffer, "   first score: %d, second score: %d", score, secondScore);
-    // }
-    // outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, buffer);
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' back to main menu --");
-    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'enter' to next door --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu --");
+    outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game --");
 }
 
 void Menu::setMode(int m1, int m2)
@@ -146,6 +147,7 @@ void Menu::listenMenu()
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'e' to play game --");
         Sleep(200);
         cleardevice();
+        initParam();
         isRunning = true;
     }
     else if (key == 'r')
@@ -264,6 +266,7 @@ void Menu::listenChooseWallType()
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press '1' to choose simple mode --");
         Sleep(200);
         isRunning = true;
+        isQuit = false;
         wallType[0] = 1;
         wallType[1] = wallType[2] = wallType[3] = 0;
     }
@@ -273,6 +276,7 @@ void Menu::listenChooseWallType()
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press '2' to choose medium mode --");
         Sleep(200);
         isRunning = true;
+        isQuit = false;
         wallType[1] = 1;
         wallType[0] = wallType[2] = wallType[3] = 0;
     }
@@ -282,6 +286,7 @@ void Menu::listenChooseWallType()
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press '3' to choose complex mode --");
         Sleep(200);
         isRunning = true;
+        isQuit = false;
         wallType[2] = 1;
         wallType[0] = wallType[1] = wallType[3] = 0;
     }
@@ -291,6 +296,7 @@ void Menu::listenChooseWallType()
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press '4' to choose demon mode --");
         Sleep(200);
         isRunning = true;
+        isQuit = false;
         wallType[3] = 1;
         wallType[0] = wallType[1] = wallType[2] = 0;
     }
@@ -378,7 +384,14 @@ void Menu::listenGameOver()
 void Menu::listenGameWin()
 {
     char key = getch();
-    if (key == 'r')
+    if (key == key_enter)
+    {
+        setcolor(GREEN);
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'enter' to next door --");
+        Sleep(200);
+        toNextDoor();
+    }
+    else if (key == 'r')
     {
         setcolor(GREEN);
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'r' back to main menu --");
@@ -400,15 +413,38 @@ void Menu::listenGameWin()
     }
 }
 
+void Menu::toNextDoor()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        if (wallType[i] == 1)
+        {
+            wallType[i] = 0;
+            if (i == 4)
+            {
+                wallType[0] = 1;
+            }
+            else
+            {
+                wallType[i + 1] = 1;
+            }
+            break;
+        }
+    }
+    cleardevice();
+    isRunning = true;
+    isQuit = false;
+    Game game;
+    game.run();
+}
+
 void Menu::reset()
 {
     isRunning = false;
+    isQuit = false;
 
     cleardevice();
-    wallType[0] = 1;wallType[1] = wallType[2] = wallType[3] = 0;
-    mode[0] = 1;mode[1] = 0;
-    score = secondScore = 0;
-    VELOCITY = SECOND_VELOCITY = 6;
     Game game;
+    game.init();
     game.run();
 }
