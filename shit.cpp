@@ -9,7 +9,7 @@ Shit::Shit()
 void Shit::setImages()
 {
     shitImg = newimage();
-    getimage(shitImg, "./cpp-snake-ege/assets/shit.jpg");
+    getimage(shitImg, "cpp-snake-ege/assets/shit.jpg");
     // getimage(shitImg, "./assets/shit.jpg"); // exe file
 }
 

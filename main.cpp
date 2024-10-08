@@ -19,6 +19,7 @@ int main()
     MUSIC bgm;
 
     bgm.OpenFile("cpp-snake-ege/assets/bp_music.wav");
+    // bgm.OpenFile("./assets/bp_music.wav");
     bgm.Play();
 
     setinitmode(0);

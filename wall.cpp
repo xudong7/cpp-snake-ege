@@ -3,7 +3,7 @@
 Wall::Wall()
 {
     wallImg = newimage();
-    getimage(wallImg, "./cpp-snake-ege/assets/wall.jpg");
+    getimage(wallImg, "cpp-snake-ege/assets/wall.jpg");
     // getimage(wallImg, "./assets/wall.jpg"); // exe file
 }
 

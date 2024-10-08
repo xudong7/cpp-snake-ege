@@ -13,11 +13,16 @@ void Menu::setImages()
     leftsnakepic = newimage();
     rightsnakepic = newimage();
     gameWin = newimage();
-    getimage(snakeTitle, "./cpp-snake-ege/assets/snakeTitle.jpg");
-    getimage(gameOverPic, "./cpp-snake-ege/assets/gameoverpic.jpg");
-    getimage(leftsnakepic, "./cpp-snake-ege/assets/leftsnakepic.jpg");
-    getimage(rightsnakepic, "./cpp-snake-ege/assets/rightsnakepic.jpg");
-    getimage(gameWin, "./cpp-snake-ege/assets/win.jpg");
+    getimage(snakeTitle, "cpp-snake-ege/assets/snakeTitle.jpg");
+    getimage(gameOverPic, "cpp-snake-ege/assets/gameoverpic.jpg");
+    getimage(leftsnakepic, "cpp-snake-ege/assets/leftsnakepic.jpg");
+    getimage(rightsnakepic, "cpp-snake-ege/assets/rightsnakepic.jpg");
+    getimage(gameWin, "cpp-snake-ege/assets/win.jpg");
+    // getimage(snakeTitle, "./assets/snakeTitle.jpg");
+    // getimage(gameOverPic, "./assets/gameoverpic.jpg");
+    // getimage(leftsnakepic, "./assets/leftsnakepic.jpg");
+    // getimage(rightsnakepic, "./assets/rightsnakepic.jpg");
+    // getimage(gameWin, "./assets/win.jpg");
 }
 
 void Menu::showMenu()
@@ -146,6 +151,7 @@ void Menu::listenMenu()
         outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'e' to play game --");
         Sleep(200);
         cleardevice();
+        wallType[0] = 1;wallType[1] = wallType[2] = wallType[3] = 0;
         isRunning = true;
     }
     else if (key == 'r')

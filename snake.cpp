@@ -20,8 +20,8 @@ void Snake::setImages()
 {
     snakeHeadImg = newimage();
     snakeBodyImg = newimage();
-    getimage(snakeHeadImg, "./cpp-snake-ege/assets/snakeHead.jpg");
-    getimage(snakeBodyImg, "./cpp-snake-ege/assets/snakeTail.jpg");
+    getimage(snakeHeadImg, "cpp-snake-ege/assets/snakeHead.jpg");
+    getimage(snakeBodyImg, "cpp-snake-ege/assets/snakeTail.jpg");
     // getimage(snakeHeadImg, "./assets/snakeHead.jpg"); // exe file
     // getimage(snakeBodyImg, "./assets/snakeTail.jpg"); // exe file
 }

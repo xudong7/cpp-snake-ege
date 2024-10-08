@@ -15,10 +15,10 @@ void SecondSnake::setImages()
 {
     snakeHeadImg = newimage();
     snakeBodyImg = newimage();
-    getimage(snakeHeadImg, "./cpp-snake-ege/assets/secondSnakeHead.jpg");
-    getimage(snakeBodyImg, "./cpp-snake-ege/assets/secondSnakeTail.jpg");
-    // getimage(foodImg, "./assets/secondSnakeHead.jpg"); // exe file
-    // getimage(foodImg, "./assets/secondSnakeTail.jpg"); // exe file
+    getimage(snakeHeadImg, "cpp-snake-ege/assets/secondSnakeHead.jpg");
+    getimage(snakeBodyImg, "cpp-snake-ege/assets/secondSnakeTail.jpg");
+    // getimage(snakeHeadImg, "./assets/secondSnakeHead.jpg"); // exe file
+    // getimage(snakeBodyImg, "./assets/secondSnakeTail.jpg"); // exe file
 }
 
 SecondSnake::~SecondSnake() {  
