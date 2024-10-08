@@ -77,20 +77,28 @@ void Wall::draw()
     
 }
 
-void Wall::generateRandomly(Point& food, Snake& snake, SecondSnake& secondSnake)
+void Wall::generateRandomly(Point& food, vector<Point>& shit_position, Snake& snake, SecondSnake& secondSnake)
 {
     int x = rand() % ((WINDOW_WIDTH - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
     int y = rand() % ((WINDOW_HEIGHT - 2 * GRID_SIZE) / GRID_SIZE) * GRID_SIZE + GRID_SIZE;
     if (x == food.x && y == food.y)
     {
-        generateRandomly(food, snake, secondSnake);
+        generateRandomly(food, shit_position, snake, secondSnake);
         return;
+    }
+    for (auto &p : shit_position)
+    {
+        if (x == p.x && y == p.y)
+        {
+            generateRandomly(food, shit_position, snake, secondSnake);
+            return;
+        }
     }
     for (auto &p : snake.getBody())
     {
         if (x == p.x && y == p.y)
         {
-            generateRandomly(food, snake, secondSnake);
+            generateRandomly(food, shit_position, snake, secondSnake);
             return;
         }
     }
@@ -98,7 +106,7 @@ void Wall::generateRandomly(Point& food, Snake& snake, SecondSnake& secondSnake)
     {
         if (x == p.x && y == p.y)
         {
-            generateRandomly(food, snake, secondSnake);
+            generateRandomly(food, shit_position, snake, secondSnake);
             return;
         }
     }

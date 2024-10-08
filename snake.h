@@ -20,10 +20,11 @@ public:
     ~Snake();
     void setImages();
     void draw();  
-    bool move(vector<Point>& wall_position, Point& food);  
+    bool move(vector<Point>& wall_position, Point& food, vector<Point>& shit_position);  
     void printScore();
     void changeDirection(char key);  
     bool ifAteFood(Point& newHead, Point& food);
+    void ifAteShit(Point& newHead, vector<Point>& shit_position);
     void checkGameOver(Point& newHead, vector<Point>& wall_position);
     bool isGameOver();  
     int getLength();

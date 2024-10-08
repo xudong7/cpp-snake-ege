@@ -61,6 +61,26 @@ bool SecondSnake::ifAteFood(Point& newHead, Point& food)
     }  
 }
 
+void SecondSnake::ifAteShit(Point& newHead, vector<Point>& shit_position)
+{
+    for (auto it = shit_position.begin(); it != shit_position.end(); )  
+    {  
+        if (newHead.x == it->x && newHead.y == it->y)  
+        {  
+            secondScore -= 5; 
+            if (score % 5 == 0)  
+            {  
+                SECOND_VELOCITY += 2 * DELTA_VELOCITY; 
+            }  
+            it = shit_position.erase(it); 
+        }  
+        else  
+        {  
+            ++it; 
+        }  
+    }  
+}
+
 void SecondSnake::checkGameOver(Point& newHead, vector<Point>& wall_position)
 {
     for (auto &p : wall_position)

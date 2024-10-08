@@ -10,13 +10,13 @@ void Game::snakeAction(bool& ifAte, bool& ifSecondAte)
 {
     if (mode[0] == 1 && mode[1] == 0)
     {
-        ifAte = snake.move(wall.getWallPosition(), food.getFood()); 
+        ifAte = snake.move(wall.getWallPosition(), food.getFood(), shit.getShitPosition()); 
         food.draw(wall.getWallPosition(), ifAte);
         snake.draw();  
     }
     else
     {
-        ifAte = snake.move(wall.getWallPosition(), food.getFood()); 
+        ifAte = snake.move(wall.getWallPosition(), food.getFood(), shit.getShitPosition()); 
         ifSecondAte = secondSnake.move(wall.getWallPosition(), food.getFood());
         food.draw(wall.getWallPosition(), ifAte);
         food.draw(wall.getWallPosition(), ifSecondAte);
@@ -25,30 +25,40 @@ void Game::snakeAction(bool& ifAte, bool& ifSecondAte)
     }
 }
 
-void Game::updateRandomWall(bool& ifAte, bool& ifSecondAte)
+void Game::updateRandomWallAndShit(bool& ifAte, bool& ifSecondAte)
 {
     if (mode[0] == 1 && mode[1] == 0)
     {
         if (ifAte)
         {
-            wall.generateRandomly(food.getFood(), snake, secondSnake);
-            ifAte = false;
+            wall.generateRandomly(food.getFood(), shit.getShitPosition(), snake, secondSnake);
         }
-        return;
+        if (ifAte && (secondScore+score) % 2 == 0)
+        {
+            shit.generateRandomly(food.getFood(), wall.getWallPosition(), snake, secondSnake);
+        }
     }
     else
     {
         if (ifAte)
         {
-            wall.generateRandomly(food.getFood(), snake, secondSnake);
-            ifAte = false;
+            wall.generateRandomly(food.getFood(), shit.getShitPosition(), snake, secondSnake);
+        }
+        if (ifAte && score % 2 == 0)
+        {
+            shit.generateRandomly(food.getFood(), wall.getWallPosition(), snake, secondSnake);
         }
         if (ifSecondAte)
         {
-            wall.generateRandomly(food.getFood(), snake, secondSnake);
-            ifSecondAte = false;
+            wall.generateRandomly(food.getFood(), shit.getShitPosition(), snake, secondSnake);
+        }
+        if (ifSecondAte && (secondScore+score) % 2 == 0)
+        {
+            shit.generateRandomly(food.getFood(), wall.getWallPosition(), snake, secondSnake);
         }
     }
+    ifAte = false;
+    ifSecondAte = false;
 }
 
 bool Game::checkGameOver()
@@ -162,6 +172,7 @@ void Game::run()
         twoSnakeCollision();
 
         wall.draw(); 
+        shit.draw();
 
         snake.printScore();
         if (mode[0] == 0 && mode[1] == 1)
@@ -169,7 +180,7 @@ void Game::run()
             secondSnake.printScore();
         }
             
-        updateRandomWall(ifAte, ifSecondAte);
+        updateRandomWallAndShit(ifAte, ifSecondAte);
 
         delay_fps(0.5 * (VELOCITY + SECOND_VELOCITY));
     }  

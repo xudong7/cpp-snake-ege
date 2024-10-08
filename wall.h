@@ -10,7 +10,7 @@ class Wall
 public:
     Wall();
     void draw();
-    void generateRandomly(Point& food, Snake& snake, SecondSnake& secondSnake);
+    void generateRandomly(Point& food, vector<Point>& shit_position, Snake& snake, SecondSnake& secondSnake);
     void initWallDraw();
     vector<Point>& getWallPosition() { return wall_position; }
 };

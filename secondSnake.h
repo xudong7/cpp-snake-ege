@@ -24,6 +24,7 @@ public:
     void printScore();
     void changeDirection(char key);  
     bool ifAteFood(Point& newHead, Point& food);
+    void ifAteShit(Point& newHead, vector<Point>& shit_position);
     void checkGameOver(Point& newHead, vector<Point>& wall_position);
     bool isGameOver();  
     int getLength();

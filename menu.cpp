@@ -405,7 +405,10 @@ void Menu::reset()
     isRunning = false;
 
     cleardevice();
-    Game game;
+    wallType[0] = 1;wallType[1] = wallType[2] = wallType[3] = 0;
+    mode[0] = 1;mode[1] = 0;
     score = secondScore = 0;
+    VELOCITY = SECOND_VELOCITY = 6;
+    Game game;
     game.run();
 }
