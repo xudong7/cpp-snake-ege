@@ -151,7 +151,7 @@ void Menu::listenMenu()
     else if (key == 'r')
     {
         setcolor(GREEN);
-        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2, "-- Press 'r' to choose game mode --");
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'r' to choose game mode --");
         Sleep(200);
         cleardevice();
         chooseGameMode();
@@ -160,7 +160,7 @@ void Menu::listenMenu()
     else if (key == 'h')
     {
         setcolor(GREEN);
-        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 30, "-- Press 'h' to know how to play --");
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'h' to know how to play --");
         Sleep(200);
         cleardevice();
         howToPlay();
@@ -169,7 +169,7 @@ void Menu::listenMenu()
     else if (key == 'q')
     {
         setcolor(GREEN);
-        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 60, "-- Press 'q' to exit the game    --");
+        outtextxy(WINDOW_WIDTH/3, WINDOW_HEIGHT/2 + 90, "-- Press 'q' to exit the game    --");
         Sleep(200);
         score = secondScore = 0;
         isRunning = false;
