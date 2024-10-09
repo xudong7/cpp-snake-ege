@@ -148,7 +148,6 @@ void Game::run()
     score = secondScore = 0;
     VELOCITY = SECOND_VELOCITY = 6;
     wall.initWallDraw();
-    Sleep(200);
     while (checkGameOver()) 
     {  
         cleardevice();

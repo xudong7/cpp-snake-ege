@@ -40,7 +40,12 @@ void Wall::initWallDraw()
     }
     else if (wallType[3] == 1)
     {
-        for (int i = 2 * GRID_SIZE; i < WINDOW_HEIGHT - 2 * GRID_SIZE; i += GRID_SIZE)
+        for (int i = 2 * GRID_SIZE; i < WINDOW_HEIGHT/2 - GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({2 * GRID_SIZE, i});
+            wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
+        }
+        for (int i = WINDOW_HEIGHT/2 + GRID_SIZE; i < WINDOW_HEIGHT - 2 * GRID_SIZE; i += GRID_SIZE)
         {
             wall_position.push_back({2 * GRID_SIZE, i});
             wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
@@ -102,27 +107,6 @@ void Wall::initWallDraw()
             wall_position.push_back({WINDOW_WIDTH / 2 + GRID_SIZE, i});
             wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
         }
-    }
-    else if (wallType[5] == 1)
-    {
-        
-
-    }
-    else if (wallType[6] == 1)
-    {
-
-    }
-    else if (wallType[7] == 1)
-    {
-
-    }
-    else if (wallType[8] == 1)
-    {
-
-    }
-    else if (wallType[9] == 1)
-    {
-
     }
 }
 

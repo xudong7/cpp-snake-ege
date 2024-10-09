@@ -27,7 +27,7 @@ int score = 0;
 int secondScore = 0;
 // bool gameOver = false;
 int mode[2] = {1, 0};
-int wallType[10] = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+int wallType[5] = {1, 0, 0, 0, 0};
 const int wantScore = 2;
 
 
