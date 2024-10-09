@@ -23,12 +23,12 @@ double VELOCITY = 6;
 double SECOND_VELOCITY = 6;
 bool isRunning = false;
 bool isQuit = false;
+bool isRandomWall = false;
 int score = 0;
 int secondScore = 0;
-// bool gameOver = false;
 int mode[2] = {1, 0};
 int wallType[5] = {1, 0, 0, 0, 0};
-const int wantScore = 2;
+const int wantScore = 5;
 
 
 

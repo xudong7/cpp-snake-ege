@@ -40,6 +40,14 @@ void Shit::generateRandomly(Point& food, vector<Point>& wall_position, Snake& sn
             return;
         }
     }
+    for (auto &p : wall_position)
+    {
+        if (x == p.x && y == p.y)
+        {
+            generateRandomly(food, wall_position, snake, secondSnake);
+            return;
+        }
+    }
     Point p = {x, y};
     shit_position.push_back(p);
 }

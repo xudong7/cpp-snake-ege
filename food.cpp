@@ -13,13 +13,13 @@ void Food::setImages()
     // getimage(foodImg, "./assets/china.jpg"); // exe file
 }
 
-void Food::draw(vector<Point>& wall_position, int ifAteFood)
+void Food::draw(vector<Point>& wall_position, Snake& snake, int ifAteFood)
 {
-    generateRandomly(wall_position, ifAteFood);
+    generateRandomly(wall_position, snake, ifAteFood);
     putimage(food.x, food.y, foodImg);
 }
 
-void Food::generateRandomly(vector<Point>& wall_position, int ifAteFood)
+void Food::generateRandomly(vector<Point>& wall_position, Snake& snake, int ifAteFood)
 {
     if (ifAteFood)
     {
@@ -29,7 +29,15 @@ void Food::generateRandomly(vector<Point>& wall_position, int ifAteFood)
         {
             if (x == p.x && y == p.y)
             {
-                generateRandomly(wall_position, ifAteFood);
+                generateRandomly(wall_position, snake, ifAteFood);
+                return;
+            }
+        }
+        for (auto &p : snake.getBody())
+        {
+            if (x == p.x && y == p.y)
+            {
+                generateRandomly(wall_position, snake, ifAteFood);
                 return;
             }
         }

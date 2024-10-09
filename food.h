@@ -9,7 +9,7 @@ public:
     Food();
     ~Food();
     void setImages();
-    void draw(vector<Point>& wall_position, int ifAteFood = 0);
-    void generateRandomly(vector<Point>& wall_position, int ifAteFood);
+    void draw(vector<Point>& wall_position, Snake& snake, int ifAteFood = 0);
+    void generateRandomly(vector<Point>& wall_position, Snake& snake, int ifAteFood);
     Point& getFood() { return food; }
 };

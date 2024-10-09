@@ -352,7 +352,7 @@ void Menu::listenStopMenu()
     }
     else
     {
-        stopMenu();
+        listenStopMenu();
     }
 }
 
@@ -442,6 +442,7 @@ void Menu::reset()
 {
     isRunning = false;
     isQuit = false;
+    isRandomWall = false;
 
     cleardevice();
     Game game;

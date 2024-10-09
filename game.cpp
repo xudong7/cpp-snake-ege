@@ -18,15 +18,15 @@ void Game::snakeAction(bool& ifAte, bool& ifSecondAte)
     if (mode[0] == 1 && mode[1] == 0)
     {
         ifAte = snake.move(wall.getWallPosition(), food.getFood(), shit.getShitPosition()); 
-        food.draw(wall.getWallPosition(), ifAte);
+        food.draw(wall.getWallPosition(), snake, ifAte);
         snake.draw();  
     }
     else
     {
         ifAte = snake.move(wall.getWallPosition(), food.getFood(), shit.getShitPosition()); 
         ifSecondAte = secondSnake.move(wall.getWallPosition(), food.getFood());
-        food.draw(wall.getWallPosition(), ifAte);
-        food.draw(wall.getWallPosition(), ifSecondAte);
+        food.draw(wall.getWallPosition(), snake, ifAte);
+        food.draw(wall.getWallPosition(), snake, ifSecondAte);
         snake.draw();   
         secondSnake.draw();
     }
@@ -36,7 +36,7 @@ void Game::updateRandomWallAndShit(bool& ifAte, bool& ifSecondAte)
 {
     if (mode[0] == 1 && mode[1] == 0)
     {
-        if (ifAte)
+        if (ifAte && isRandomWall)
         {
             wall.generateRandomly(food.getFood(), shit.getShitPosition(), snake, secondSnake);
         }
@@ -47,7 +47,7 @@ void Game::updateRandomWallAndShit(bool& ifAte, bool& ifSecondAte)
     }
     else
     {
-        if (ifAte)
+        if (ifAte && isRandomWall)
         {
             wall.generateRandomly(food.getFood(), shit.getShitPosition(), snake, secondSnake);
         }
@@ -55,7 +55,7 @@ void Game::updateRandomWallAndShit(bool& ifAte, bool& ifSecondAte)
         {
             shit.generateRandomly(food.getFood(), wall.getWallPosition(), snake, secondSnake);
         }
-        if (ifSecondAte)
+        if (ifSecondAte && isRandomWall)
         {
             wall.generateRandomly(food.getFood(), shit.getShitPosition(), snake, secondSnake);
         }

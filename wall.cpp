@@ -20,7 +20,12 @@ void Wall::initWallDraw()
             wall_position.push_back({2 * GRID_SIZE, i});
             wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
         }
-        for (int i = 2 * GRID_SIZE; i < WINDOW_WIDTH - 2 * GRID_SIZE; i += GRID_SIZE)
+        for (int i = 2 * GRID_SIZE; i < WINDOW_WIDTH/2 - 2 * GRID_SIZE; i += GRID_SIZE)
+        {
+            wall_position.push_back({i, 2 * GRID_SIZE});
+            wall_position.push_back({i, WINDOW_HEIGHT - 3 * GRID_SIZE});
+        }
+        for (int i = WINDOW_WIDTH/2 + GRID_SIZE; i < WINDOW_WIDTH - 2 * GRID_SIZE; i += GRID_SIZE)
         {
             wall_position.push_back({i, 2 * GRID_SIZE});
             wall_position.push_back({i, WINDOW_HEIGHT - 3 * GRID_SIZE});
