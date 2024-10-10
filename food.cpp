@@ -3,23 +3,14 @@
 
 Food::Food()
 {
-<<<<<<< HEAD
-    foodImg = newimage();
-    getimage(foodImg, "./assets/china.jpg");
-=======
     setImages(); 
->>>>>>> br10
 }
 
 void Food::setImages()
 {
     foodImg = newimage();
-<<<<<<< HEAD
-    getimage(foodImg, "./assets/china.jpg");
-=======
     getimage(foodImg, "./cpp-snake-ege/assets/china.jpg");
     // getimage(foodImg, "./assets/china.jpg"); // exe file
->>>>>>> br10
 }
 
 void Food::draw(vector<Point>& wall_position, Snake& snake, int ifAteFood)

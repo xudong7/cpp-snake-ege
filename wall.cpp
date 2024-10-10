@@ -3,9 +3,6 @@
 Wall::Wall()
 {
     wallImg = newimage();
-<<<<<<< HEAD
-    getimage(wallImg, "./assets/wall.jpg");
-=======
     getimage(wallImg, "./cpp-snake-ege/assets/wall.jpg");
     // getimage(wallImg, "./assets/wall.jpg"); // exe file
 }
@@ -116,7 +113,6 @@ void Wall::initWallDraw()
             wall_position.push_back({WINDOW_WIDTH - 3 * GRID_SIZE, i});
         }
     }
->>>>>>> br10
 }
 
 void Wall::draw()
