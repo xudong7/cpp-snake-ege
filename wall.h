@@ -1,4 +1,7 @@
 #pragma once
+#include "game.h"
+#include "snake.h"
+#include "secondSnake.h"
 
 class Wall
 {
@@ -7,6 +10,7 @@ class Wall
 public:
     Wall();
     void draw();
-    void generateRandomly(Point& food);
+    void generateRandomly(Point& food, vector<Point>& shit_position, Snake& snake, SecondSnake& secondSnake);
+    void initWallDraw();
     vector<Point>& getWallPosition() { return wall_position; }
 };
