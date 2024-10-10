@@ -19,8 +19,8 @@ using namespace std;
 #define WINDOW_WIDTH 1000  
 #define WINDOW_HEIGHT 600  
 #define DELTA_VELOCITY 0.5
-double VELOCITY = 6;
-double SECOND_VELOCITY = 6;
+double VELOCITY = 10;
+double SECOND_VELOCITY = 10;
 bool isRunning = false;
 bool isQuit = false;
 bool isRandomWall = false;
@@ -28,7 +28,7 @@ int score = 0;
 int secondScore = 0;
 int mode[2] = {1, 0};
 int wallType[5] = {1, 0, 0, 0, 0};
-const int wantScore = 5;
+const int wantScore = 10;
 
 
 
