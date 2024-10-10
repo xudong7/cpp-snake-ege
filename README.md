@@ -1,6 +1,5 @@
 Snake Game
 ----
-
 玩法：
 
 使用'w','a','s','d'键操控snake，使用'↑','↓','←','→'键操控secondSnake；
@@ -60,6 +59,26 @@ pause菜单：
 按'r'键，返回主菜单；
 
 按'q'键，退出游戏程序。
+
+![alt text](assets/image.png)
+
+![alt text](<assets/image copy.png>)
+
+![alt text](<assets/image copy 2.png>)
+
+![alt text](<assets/image copy 3.png>)
+
+![alt text](<assets/image copy 4.png>)
+
+![alt text](<assets/image copy 5.png>)
+
+![alt text](<assets/image copy 6.png>)
+
+![alt text](<assets/image copy 7.png>)
+
+![alt text](<assets/image copy 8.png>)
+
+![alt text](<assets/image copy 9.png>)
 
 
 
